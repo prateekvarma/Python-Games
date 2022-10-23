@@ -25,4 +25,10 @@ while game_is_on:  # This while loop is simply to display what screen.tracer(0) 
     screen.update()
     ball.move()
 
+    # Detect collision with the upper wall or lower wall
+    if ball.ycor() > 280 or ball.ycor() < -280:
+        # needs to bounce
+        ball.bounce()
+
+
 screen.exitonclick()
