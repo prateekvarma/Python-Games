@@ -21,3 +21,7 @@ class Ball(Turtle):
 
     def bounce_x(self):
         self.x_move *= -1
+
+    def reset_position(self):
+        self.goto(0, 0)  # place ball at the center
+        self.bounce_x()  # change ball's direction to the opposite player
