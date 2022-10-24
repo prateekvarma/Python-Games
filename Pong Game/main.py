@@ -28,7 +28,11 @@ while game_is_on:  # This while loop is simply to display what screen.tracer(0) 
     # Detect collision with the upper wall or lower wall
     if ball.ycor() > 280 or ball.ycor() < -280:
         # needs to bounce
-        ball.bounce()
+        ball.bounce_y()
+
+    # Detect collision with right & left paddles
+    if ball.distance(r_paddle) < 50 and ball.xcor() > 320 or ball.distance(l_paddle) < 50 and ball.xcor() < -320:
+        ball.bounce_x()
 
 
 screen.exitonclick()
