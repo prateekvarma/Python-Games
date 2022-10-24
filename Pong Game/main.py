@@ -1,6 +1,7 @@
 from turtle import Screen, Turtle
 from paddle import Paddle
 from ball import Ball
+from scoreboard import Scoreboard
 import time
 
 screen = Screen()
@@ -12,6 +13,7 @@ screen.tracer(0)  # Turns off the animation. Here refers to the padding going to
 r_paddle = Paddle((350, 0))
 l_paddle = Paddle((-350, 0))
 ball = Ball()
+scoreboard = Scoreboard()
 
 screen.listen()
 screen.onkey(r_paddle.go_up, "Up")
@@ -37,10 +39,12 @@ while game_is_on:  # This while loop is simply to display what screen.tracer(0) 
     # Detect when right paddle misses the ball
     if ball.xcor() > 380:
         ball.reset_position()
+        scoreboard.l_point()  # give a point to the left paddle
 
     # Detect when left paddle misses the ball
     if ball.xcor() < -380:
         ball.reset_position()
+        scoreboard.r_point()  # give a point to the right paddle
 
 
 screen.exitonclick()
