@@ -30,3 +30,4 @@ while game_is_on:
     # Detect when turtle crosses & reaches end of y-axis
     if player.is_at_finish_line():
         player.go_to_start()
+        car_manager.level_up()
