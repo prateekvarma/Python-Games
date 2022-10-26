@@ -25,6 +25,13 @@ class Snake:
         new_segment.goto(position)
         self.segments.append(new_segment)
 
+    def reset(self):  # upon collision this is called, where the snake resets
+        for seg in self.segments:
+            seg.goto(1000, 1000)  # without this the dead snake still stays on screen
+        self.segments.clear()
+        self.create_snake()
+        self.head = self.segments[0]  # just as in the init function
+
     def extend(self):
         self.add_segment(self.segments[-1].position())  # -1 is the last index in a list
 
